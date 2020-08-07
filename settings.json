@@ -1,0 +1,28 @@
+{
+  "sourceFile": "./REMESSA_07955_082020_21_25_25.xlsx",
+  "destinationFile": "legado-file.txt",
+  "columnToKey": {
+    "A": "Registro",
+    "B": "Convenio",
+    "C": "ConvenioDV",
+    "D": "NumExt",
+    "E": "NumExtDV",
+    "F": "Sequencia",
+    "G": "PrazoTotal",
+    "H": "PrazoRemanescente",
+    "I": "Contrato",
+    "J": "NumPrestacao",
+    "K": "Matricula",
+    "L": "Nome",
+    "M": "CodOcorrencia",
+    "N": "Conta",
+    "O": "Cpf",
+    "P": "ValorPrestacao",
+    "Q": "ValorPagar",
+    "R": "SituacaoDesconto",
+    "S": "Observacao",
+    "T": "",
+    "U": "Legenda"
+  },
+  "sheets": ["Dados"]
+}

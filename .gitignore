@@ -1,0 +1,5 @@
+node_modules/
+*.xlsx
+*.txt
+layoutLegado
+*.lock

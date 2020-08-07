@@ -1,0 +1,10 @@
+{
+  "name": "builder-txt",
+  "version": "1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "date-fns": "^2.15.0"
+  }
+}
