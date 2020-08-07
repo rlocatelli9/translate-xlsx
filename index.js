@@ -50,6 +50,8 @@ arrayData.map(element => {
     // console.debug('CONTRATO: ', contrato);
     element.Contrato = ('00000000000000000000' + (contrato)).slice(-20);
     // element.Contrato = contrato;
+  }else{
+    element.Contrato = '00000000000000000000';
   }
   element.dateInitial = format(new Date().getTime() - (thirtyDay * element.NumPrestacao), 'ddMMyyyy');
   element.dateFinal = format(new Date().getTime() + (thirtyDay * element.PrazoRemanescente), 'ddMMyyyy');
@@ -73,21 +75,34 @@ arrayData.map(element => {
       }
       // console.log("NOME: ", element.Nome);
     }
+  } else {
+    console.error('[ERROR] Nome fora do padrão.');
+    throw new Error('Arquivo fora do padrão definido! Verifique o campo NOME.')
   }
   if(element.Cpf !== ''){
     const cpf = element.Cpf.split('.').join('').split('-').join('');
-    // console.debug('CPF: ', cpf);
-    element.Cpf = cpf;
+    if(cpf.length === 11) element.Cpf = cpf;
+    else {
+      console.error('[ERROR] CPF fora do padrão.');
+      throw new Error('Arquivo fora do padrão definido! Verifique o campo CPF.')
+    }
+  } else {
+    console.error('[ERROR] CPF vazio.');
+    throw new Error('Arquivo fora do padrão definido! Verifique o campo CPF.')
   }
   if(element.ValorPrestacao !== ''){
     const valorPrestacao = element.ValorPrestacao.toString().split(',').join('').split('.').join('');
     // console.debug('VALOR PRESTACAO: ', valorPrestacao);
     element.ValorPrestacao = ('000000000000000' + (valorPrestacao)).slice(-15);
+  }else{
+    element.ValorPrestacao = '000000000000000';
   }
   if(element.ValorPagar !== ''){
     const valorPagar = element.ValorPagar.toString().split(',').join('').split('.').join('');
     // console.debug('VALOR PAGAR: ', valorPagar);
     element.ValorPagar = valorPagar;
+  }else{
+    element.ValorPagar = '000000000000000';
   }
   if(element.SituacaoDesconto !== ''){
     const situacaoDesconto = element.SituacaoDesconto.split('-');
@@ -113,6 +128,8 @@ arrayData.map(element => {
       }
       // console.log("NOME: ", element.Nome);
     }
+  }else{
+    element.ValorPagar = '00000000000000000000';
   }
   if(element.PrazoTotal !== ''){
     element.PrazoTotal = element.PrazoTotal.toString();
@@ -121,9 +138,9 @@ arrayData.map(element => {
       element.PrazoTotal = ('000' + (element.PrazoTotal)).slice(-3);
     }
   }else{
-    element.PrazoTotal = "   ";
+    element.PrazoTotal = "000";
   }
-  element.ValorContratado = ('000000000000000' + ((element.ValorPrestacao * element.PrazoTotal))).slice(-15);
+  element.ValorContratado = ('000000000000000' + ((Number(element.ValorPrestacao) * Number(element.PrazoTotal)))).slice(-15);
   element.margemIncidente = "EMPRESTIMO          ";
   arrayConfig = [...arrayConfig, `${element.Cpf}${element.Nome}${element.Matricula}              ${element.SituacaoDesconto}EMPRÉSTIMO          ${element.dateInitial}${element.dateFinal}N${element.PrazoTotal}${element.ValorPrestacao}${element.ValorContratado}${element.Contrato}${element.margemIncidente}\n`];
   // arrayConfig = [...arrayConfig, `${element.Cpf}${element.Nome}${element.Matricula}${element.SituacaoDesconto}EMPRÉSTIMO    ${element.dateInitial}${element.dateFinal}N${element.PrazoTotal}${element.ValorPrestacao}${element.ValorContratado}${element.Contrato}${element.margemIncidente}\n`];
