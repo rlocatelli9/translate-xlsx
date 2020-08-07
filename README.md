@@ -5,7 +5,7 @@ You can also:
 
 ### Tech
 
-* [node.js] - evented I/O for the backend
+* [node.js](https://nodejs.org/en/) - evented I/O for the backend
 * [date-fns](https://date-fns.org/) - Modern JavaScript date utility library
 * [convert-excel-to-json](https://www.npmjs.com/package/convert-excel-to-json) - Convert Excel to JSON, mapping sheet columns to object keys.
 
