@@ -1,6 +1,6 @@
 {
-  "sourceFile": "./REMESSA_07955_082020_21_25_25.xlsx",
-  "destinationFile": "legado-file.txt",
+  "sourceFile": "./RETORNO_REMESSA_07955_092020_13_34_53.xls",
+  "destinationFile": "legado-correcao.txt",
   "columnToKey": {
     "A": "Registro",
     "B": "Convenio",

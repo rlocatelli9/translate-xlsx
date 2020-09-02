@@ -67,13 +67,13 @@ arrayData.map(element => {
         contador ++;
       }
       element.Nome = nameSplited;
-      // console.log("NOME CORTADO: ", element.Nome);
+      console.log("NOME CORTADO: ", element.Nome);
     } else {
       while (lengthName < 30) {
         element.Nome += ' ';
         lengthName = element.Nome.length;
       }
-      // console.log("NOME: ", element.Nome);
+      console.log("NOME: ", element.Nome);
     }
   } else {
     console.error('[ERROR] Nome fora do padrão.');
@@ -91,15 +91,18 @@ arrayData.map(element => {
     throw new Error('Arquivo fora do padrão definido! Verifique o campo CPF.')
   }
   if(element.ValorPrestacao !== ''){
-    const valorPrestacao = element.ValorPrestacao.toString().split(',').join('').split('.').join('');
+    console.log('Valor prestacao original: ', element.ValorPrestacao.toFixed(2));
+    const valorPrestacao = element.ValorPrestacao.toFixed(2).split(',').join('').split('.').join('');
     // console.debug('VALOR PRESTACAO: ', valorPrestacao);
+    console.debug('VALOR prestacao formatado: ', valorPrestacao);
     element.ValorPrestacao = ('000000000000000' + (valorPrestacao)).slice(-15);
   }else{
     element.ValorPrestacao = '000000000000000';
   }
   if(element.ValorPagar !== ''){
-    const valorPagar = element.ValorPagar.toString().split(',').join('').split('.').join('');
-    // console.debug('VALOR PAGAR: ', valorPagar);
+    // console.log('Valor original: ', element.ValorPagar.toFixed(2));
+    const valorPagar = element.ValorPagar.toFixed(2).split(',').join('').split('.').join('');
+    // console.debug('VALOR formatado: ', valorPagar);
     element.ValorPagar = valorPagar;
   }else{
     element.ValorPagar = '000000000000000';
@@ -129,7 +132,7 @@ arrayData.map(element => {
       // console.log("NOME: ", element.Nome);
     }
   }else{
-    element.ValorPagar = '00000000000000000000';
+    element.SituacaoDesconto = '00000000000000000000';
   }
   if(element.PrazoTotal !== ''){
     element.PrazoTotal = element.PrazoTotal.toString();
